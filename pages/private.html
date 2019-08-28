@@ -7,35 +7,60 @@
 		<link rel="stylesheet" href="../main.css" />
 	</head>
     <body>
-			<section class="wrapper special">
-				<h2>나의 개인정보</h2>
-				<nav>
-					<ul class="actions">
-						<li><a href="../">MAIN PAGE</a></li>
-						<li><a href="cando.html">할 줄 아는 일</a></li>
-						<li><a href="works.html">하고 있는 일</a></li>
-						<li><a href="todo.html">해야 할 일</a></li>
-						<li><a href="liketodo.html">좋아하는 일</a></li>
-					</ul>
-				</nav>
-			</section>
-
-			<section id="banner">
-				<div class="inner">
-					<div>
-						<p><strong>가족</strong></p>
-						<p>엄마, 아빠, 나, 여동생<br>
-						그리고 뚜비도 살아요</p>
-					</div>
-					<div>
-						<img src="poster.jpg" width='30%'>
-					</div>
-					<br><br>
-					<div>
-						<br><p><strong>연락처</strong></p>
-						<p>한국디지털미디어고등학교 2학년 6반 8번<br>이메일 : as608683@naver.com</p>
-					</div>
+		<section class="wrapper special">
+			<h2>나의 개인정보</h2>
+			<nav>
+				<ul class="actions">
+					<li><a href="../">MAIN PAGE</a></li>
+					<li><a href="cando.html">할 줄 아는 일</a></li>
+					<li><a href="works.html">하고 있는 일</a></li>
+					<li><a href="todo.html">해야 할 일</a></li>
+					<li><a href="liketodo.html">좋아하는 일</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section id="banner">
+			<div class="inner">
+				<div>
+					<p><strong>가족</strong></p>
+					<p>엄마, 아빠, 나, 여동생<br>
+					그리고 뚜비도 살아요</p>
 				</div>
-			</section>
+				<div>
+					<a href="뚜비!.mp4" download><img src="poster.jpg" width='30%'></a>
+				</div>
+				<br><br>
+				<div>
+					<br><p><strong>연락처</strong></p>
+					<p>한국디지털미디어고등학교 2학년 6반 8번<br>이메일 : as608683@naver.com</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="two" class="wrapper style2 special">
+			<div class="inner narrow">
+				<header>
+					<h2>메모 <s>(동작은 안함)</s></h2>
+				</header>
+				<form class="grid-form" method="post" action="#">
+					<div class="form-control narrow">
+						<label for="name">Name</label>
+						<input name="name" id="name" type="text">
+					</div>
+					<div class="form-control narrow">
+						<label for="email">Email</label>
+						<input name="email" id="email" type="email">
+					</div>
+					<div class="form-control">
+						<label for="message">Message</label>
+						<textarea name="message" id="message" rows="4"></textarea>
+					</div>
+					<ul class="actions">
+						<li><input value="Send Message" type="submit"></li>
+					</ul>
+				</form>
+			</div>
+		</section>
+
     </body>
 </html>
