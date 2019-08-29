@@ -5,6 +5,44 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../main.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			function maketable(obj) {
+        html = '<table class="alt special">';
+        html += '<tr><th>Author</th><th>e-mail</th><th>MEMO</th></tr>';
+        for (var i = 0; i < obj.length; i++) {
+          html += '<tr><td>' + obj[i].name + '</td><td>' + obj[i].email
+            		+ '</td><td> ' + obj[i].message + '</td></tr>';
+        }
+        html += '</table>';
+ 
+        return html
+    	}
+
+			function get_data(){
+				$('#show').html('....loadig....');
+				$.ajax({
+					type: "GET",
+					url: "http://127.0.0.1:8000/memo/",
+					dataType: "json",
+					success: function(data){
+						$('#show').html(maketable(data));
+					},
+					error: $('#show').html('server connect error!')
+				});
+			}
+
+			function btnclick(){
+				setTimeout(function() {
+					get_data();
+				}, 2500);
+			}
+
+			$(document).ready(function(){
+				get_data();
+			});
+		</script>
+
 	</head>
     <body>
 		<section class="wrapper special">
@@ -40,9 +78,9 @@
 		<section id="two" class="wrapper style2 special">
 			<div class="inner narrow">
 				<header>
-					<h2>메모 <s>(동작은 안함)</s></h2>
+					<h2>WRITE MEMO!</h2>
 				</header>
-				<form class="grid-form" method="post" action="#">
+				<form class="grid-form" method="post" action="http://127.0.0.1:8000/memo/" target="if1">
 					<div class="form-control narrow">
 						<label for="name">Name</label>
 						<input name="name" id="name" type="text">
@@ -56,11 +94,17 @@
 						<textarea name="message" id="message" rows="4"></textarea>
 					</div>
 					<ul class="actions">
-						<li><input value="Send Message" type="submit"></li>
+						<li><input value="Send Message" type="submit" onclick="btnclick()"></li>
 					</ul>
 				</form>
 			</div>
 		</section>
+		
+		<section id="one" class="wrapper narrow">
+				<div id="show" class="table-wrapper">
+				</div>
+		</section>
 
     </body>
+		<iframe name="if1" style="display:none;"></iframe>
 </html>
