@@ -6,11 +6,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../main.css" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="../filter/wordchk_search.js">
+			// wordchk1, wordchk2
+		</script>
 		<script>
 			function maketable(obj) {
         html = '<table class="alt special">';
         html += '<tr><th>Author</th><th>e-mail</th><th>MEMO</th></tr>';
         for (var i = 0; i < obj.length; i++) {
+					obj[i].message = wordchk1(wordchk2(obj[i].message));
           html += '<tr><td>' + obj[i].name + '</td><td>' + obj[i].email
             		+ '</td><td> ' + obj[i].message + '</td></tr>';
         }
@@ -23,7 +27,8 @@
 				$('#show').html('....loadig....');
 				$.ajax({
 					type: "GET",
-					url: "http://127.0.0.1:8000/memo/",
+					// url: "http://127.0.0.1:8000/memo/",
+					url: "http://cachi.ga:5000/memo/",
 					dataType: "json",
 					success: function(data){
 						$('#show').html(maketable(data));
@@ -80,7 +85,8 @@
 				<header>
 					<h2>WRITE MEMO!</h2>
 				</header>
-				<form class="grid-form" method="post" action="http://127.0.0.1:8000/memo/" target="if1">
+				<!-- <form class="grid-form" method="post" action="http://127.0.0.1:8000/memo/" target="if1"> -->
+				<form class="grid-form" method="post" action="http://cachi.ga:5000/memo/" target="if1">
 					<div class="form-control narrow">
 						<label for="name">Name</label>
 						<input name="name" id="name" type="text">
